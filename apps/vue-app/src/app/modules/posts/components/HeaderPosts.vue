@@ -15,15 +15,19 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
+  <PostForm />
 </template>
 
 <script>
 import CategoriesList from './CategoriesList.vue';
+import PostForm from './PostForm.vue';
 
 export default {
   name: 'HeaderPosts',
   components: {
-    CategoriesList
+    CategoriesList,
+    PostForm
   },
   data() {
     return {};
