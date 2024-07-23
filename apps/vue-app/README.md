@@ -18,41 +18,21 @@ https://vuelidate-next.netlify.app/
 
 ## Activities
 
-### CategoryList
-1. Create a new local variable called **categories** (you can use the same value that **categories** has of **posts/components/CategoriesList.vue**)
-2. Use **v-for** in **CategoryList** to iterate the categories
-3. Use **text interpolation** to display the values in the table
-
 ### CategoryForm
-5. Create a new local object and use **v-model** in the form
-   ```
-   category: {
-     _id: null,
-     name: null,
-   }
-   ```
-6. Create a new local variable called **action** assign **Create** as default value and use **text interpolation** to show it instead of "(Action)" of title modal.
+1. Define a new prop (**categorySelected**) of type **Object**
 
-### SignUpView
-7. Create a new local object and use **v-model** in the form
- ```
-   credentials: {
-     username: null,
-     password: null,
-   }
-   ```
+### CategoryList
+2. Define a new data value (**categorySelected)** and set it in the **updateCategory()** method with the value that receives
+3. Pass that value to **CategoryForm** as prop 
 
-### LoginView
-8. Create a new local object and use **v-model** in the form
- ```
-   newUser: {
-     username: null,
-     password: null,
-     confirmPassword: null,
-   },
-   ```
+### store.js
+4. Add a new attribute in the **store** for categories and create its method to set it (as posts value)
+5. Create a new value (boolean) in the **store** to control when the nav bar will be visible with its method to change the value
 
-### NewComment
-9. Create a local variable for the new comment and use **v-model** for input
+### App.vue
+6. Add a **v-show** validation in the nav with the store's new value to display it or hidden it
+7. You should change that value to hidden it when the user is on PostDetailView (you can use the **life cycle hooks** for that)
 
-Note: You can test that the components are working redering them on **App.vue** and validating that the forms are correctly binding the data
+### router.js
+8. Create the routes for **LoginView**, **SignUpView** and **CategoryView**
+9. Add the redirects to that views in the nav bar
