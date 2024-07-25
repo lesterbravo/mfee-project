@@ -18,41 +18,31 @@ https://vuelidate-next.netlify.app/
 
 ## Activities
 
+### store.js
+1. In the method **getCategories** call the function to get the categories from de API and save it
+2. Changes in the components that use the categories to obtain them from the store
+
+### helpers
+3. Create a new file to have the axios calls for **/auth/login** and **/auth/register**
+4. In **categories.js** add the axios calls for **create**, **deletes** and **update** category
+
+### LoginView.vue
+5. Add the validations for this form
+6. When the form is valid call the **/auth/login** that you already have created
+7. If the call was successfully redirect to **home** if not show an error in the form
+
+Note: You can save the token in the LS and inject it in the **capstoneApi.js**
+
+### SignUpView.vue
+8. Add the validations for this form
+9. When the form is valid call the **/auth/register** that you already have created
+7. If the call was successfully redirect to **login** if not print a console.error
+   
 ### CategoryList
-1. Create a new local variable called **categories** (you can use the same value that **categories** has of **posts/components/CategoriesList.vue**)
-2. Use **v-for** in **CategoryList** to iterate the categories
-3. Use **text interpolation** to display the values in the table
+8. Call **getCategories** from the store and show them in the table
+9. Call the function **deleteCategory** that you have already create to delete it
 
-### CategoryForm
-5. Create a new local object and use **v-model** in the form
-   ```
-   category: {
-     _id: null,
-     name: null,
-   }
-   ```
-6. Create a new local variable called **action** assign **Create** as default value and use **text interpolation** to show it instead of "(Action)" of title modal.
-
-### SignUpView
-7. Create a new local object and use **v-model** in the form
- ```
-   credentials: {
-     username: null,
-     password: null,
-   }
-   ```
-
-### LoginView
-8. Create a new local object and use **v-model** in the form
- ```
-   newUser: {
-     username: null,
-     password: null,
-     confirmPassword: null,
-   },
-   ```
-
-### NewComment
-9. Create a local variable for the new comment and use **v-model** for input
-
-Note: You can test that the components are working redering them on **App.vue** and validating that the forms are correctly binding the data
+## CategoryForm
+10.  Add the validations for this form
+11.  When the form is valid call the endpoint to save a category that you already have created
+12.  If the call was successfully call **getCategories** from the store if not print a console.error
