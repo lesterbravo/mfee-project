@@ -36,13 +36,13 @@ Note: You can save the token in the LS and inject it in the **capstoneApi.js**
 ### SignUpView.vue
 8. Add the validations for this form
 9. When the form is valid call the **/auth/register** that you already have created
-7. If the call was successfully redirect to **login** if not print a console.error
+10. If the call was successfully redirect to **login** if not print a console.error
    
 ### CategoryList
-8. Call **getCategories** from the store and show them in the table
-9. Call the function **deleteCategory** that you have already create to delete it
+11. Call **getCategories** from the store and show them in the table
+12. Call the function **deleteCategory** that you have already create to delete it
 
 ## CategoryForm
-10.  Add the validations for this form
-11.  When the form is valid call the endpoint to save a category that you already have created
-12.  If the call was successfully call **getCategories** from the store if not print a console.error
+13.  Add the validations for this form
+14.  When the form is valid call the endpoint to save a category that you already have created
+15.  If the call was successfully call **getCategories** from the store if not print a console.error
