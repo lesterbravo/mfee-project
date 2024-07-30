@@ -12,6 +12,24 @@ const getPosts = async (req, res) => {
   }
 };
 
+const getPostsByCategory = async (req, res) => {
+  const { category } = req.params;
+
+  try {
+    const posts = await Post.find({ category: category }).populate('category');
+
+    if (!posts) {
+      return res.status(404).json({message: "Posts not found for that category"})
+    }
+
+    // Return all the posts with a 200 status code
+    res.status(200).json(posts);
+  } catch (error) {
+    const { message } = error;
+    res.status(500).json({ message });
+  }
+};
+
 // Get post by id
 const getPostById = async (req, res) => {
   // Retrieve the id from the route params
@@ -94,6 +112,7 @@ const deletePost = async (req, res) => {
 
 export default {
   getPosts,
+  getPostsByCategory,
   getPostById,
   createPost,
   updatePost,

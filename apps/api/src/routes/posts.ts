@@ -7,6 +7,8 @@ const router = express.Router();
 // Get all posts
 router.get('/', postController.getPosts);
 
+router.get('/category/:category', postController.getPostsByCategory);
+
 // Get post by id
 router.get('/:id', postController.getPostById);
 
