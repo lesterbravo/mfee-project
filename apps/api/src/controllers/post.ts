@@ -1,4 +1,5 @@
 import Post from '../models/post';
+import Comment from "../models/comment";
 
 // Get all posts
 const getPosts = async (req, res) => {
@@ -66,6 +67,32 @@ const createPost = async (req, res) => {
   }
 };
 
+// Create comment
+const createComment = async (req, res) => {
+  const { id } = req.params;
+  try {
+
+    const post = await Post.findById(id);
+    
+    if (!post) {
+      return res.status(404).json({ message: 'Post not found' });
+    }
+
+    const comment = await Comment.create(req.body);
+    if (!comment) {
+      return res.status(400).json({ message: 'Comment not created' });
+    }
+
+    post.comments.push(comment._id);
+    await post.save();
+
+    res.status(201).json(comment);
+  } catch (error) {
+    const { message } = error;
+    res.status(500).json({ message });
+  }
+};
+
 // Update post
 const updatePost = async (req, res) => {
   // Retrieve the id from the route params
@@ -115,6 +142,7 @@ export default {
   getPostsByCategory,
   getPostById,
   createPost,
+  createComment,
   updatePost,
   deletePost
 };

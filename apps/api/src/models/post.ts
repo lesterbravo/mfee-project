@@ -1,7 +1,6 @@
 import mongoose, { Document, Schema, Types } from 'mongoose';
 
 interface IPost extends Document {
-  id: string;
   title: string;
   image: string;
   description: string;
@@ -10,10 +9,6 @@ interface IPost extends Document {
 }
 
 export const postSchema = new Schema<IPost>({
-  id: {
-    type: String,
-    required: [true, 'Property is required']
-  },
   title: {
     type: String,
     required: [true, 'Property is required']

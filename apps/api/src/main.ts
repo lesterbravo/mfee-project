@@ -21,8 +21,8 @@ app.use(cors(corsOptions));
 
 app.use('/api/auth', auth);
 
-app.use(verifyToken);
 app.use('/api/categories', categories);
+app.use(verifyToken);
 app.use('/api/posts', posts);
 
 app.use(errorHandler);

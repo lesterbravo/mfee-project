@@ -15,6 +15,9 @@ router.get('/:id', postController.getPostById);
 // Create post
 router.post('/', postController.createPost);
 
+// Create comment
+router.post('/:id/comments', postController.createComment);
+
 // Update post
 router.patch('/:id', postController.updatePost);
 
